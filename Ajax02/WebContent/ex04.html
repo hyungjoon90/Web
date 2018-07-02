@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	header{}
+	header>h2{
+		float: left;
+	}
+	header>div{
+		float: right;
+	}
+	nav{
+		clear: both;
+	}
+</style>
+<script type="text/javascript">
+	var div,inputs,button,xhr,msg;
+	function func(){
+		if(xhr.readyState==4&&xhr.status==200){
+			msg=xhr.responseText;
+			var obj=JSON.parse(msg);
+			if(obj.root[0].result){
+				div.innerText=obj.root[0].id+'님 환영합니다.';
+			}else{
+				alert('로그인 실패');
+			}
+		}
+	}
+	
+	function start(a,b){
+		console.log(a,b);
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=func;
+		xhr.open('get','login.jsp?id='+a+'&pw='+b,true);
+		xhr.send();
+	}
+	window.onload=function(){
+		div=document.querySelector('header>div');
+		inputs=div.querySelectorAll('input');
+		button=div.querySelector('button');
+		button.addEventListener('click',function(){
+			start(inputs[0].value,inputs[1].value);
+		});
+	};
+</script>
+</head>
+<body>
+	<header>
+		<h2>형준의 교육</h2>
+	<div>
+		id<input type="text"/>
+		pw<input type="text"/>
+		<button>로그인</button>
+	</div>
+	</header>
+	<nav>
+		<a href="#">menu1</a>
+		<a href="#">menu2</a>
+		<a href="#">menu3</a>
+		<a href="#">menu4</a>
+	</nav>
+	<section>
+		<h1>환영합니다.</h1>
+	</section>
+	<footer>
+	Copyright
+	</footer>
+</body>
+</html>

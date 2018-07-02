@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+		width: 500px;
+		margin: 0px auto;
+	}
+	h1{
+		width: 500px;
+		padding-bottom: 20px;
+		border-bottom: 2px solid black;
+		text-align: center;
+	}
+	body>div{
+		width: 500px;
+	}
+	div>label{
+		width: 150px;
+		display: inline-block;
+		background-color: lightgray;
+		text-align: center;
+	}
+	form>div{
+		text-align: center;
+	}
+	form>div:last-child{
+		margin-top: 30px;
+	}
+</style>
+<script type="text/javascript" src="jQuery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	function checkId(){
+		var id = $('input').eq(0).val();
+		for(var i=0; i<id.length; i++){
+			var su=id.charCodeAt(i);
+			console.log(su);
+			if(i==0){
+					if(!((su>=65 && su<=90) || (su>=97 && su<=122))){return false;}
+			}else{
+					if(!((su>=65 && su<=90) || (su>=97 && su<=122)|| (su>=48 && su<=57))){return false;}
+			}
+		}
+		return true;
+	}
+	
+	function checkPw(){
+		var pw = $('input').eq(1).val();
+		var result1=false;
+		var result2=false;
+		var result3=false;
+		for(var i=0; i<pw.length; i++){
+			var su=pw.charCodeAt(i);
+			if(su>=48 && su<=57){result1=true;}
+			if(su>=65 && su<=90){result2=true;}
+			if(su>=97 && su<=122){result3=true;}
+		}
+		if(result1 && result2 && result3){return true;}else{return false;}
+	}
+	function checkRe(){
+		var pw = $('input').eq(1).val();
+		var re = $('input').eq(2).val();
+		if(pw==re){return true;}else{return false;}
+	}
+
+	$(document).ready(function(){
+		$('form input').eq(0).focus();
+		$('form input').blur(function(e){
+			var i=$('form input').index(this);
+			$('.err').remove();
+			var param=$(this).val();
+			var err=$('<span/>').addClass('err');
+			var msg;
+				
+			if(param==''){
+				msg='값이 비었음';				
+			}else{
+				if(i==0 && !checkId()){msg='영문,숫자만 가능 (첫글자 영문)';}
+				if(i==1 && !checkPw()){msg='영소,영대,숫자 조합';}
+				if(i==2 && !checkRe()){msg='동일하지 않음</span>';}
+			}
+			err.text(msg);
+			param=$(this).after(err);	
+		});
+		
+		$('form').submit(function(){
+	
+			$('.err').remove();
+			
+			var id=$('input').eq(0).val();
+			if(id==''){
+				id=$('input').eq(0).after('<span class="err">값이 비었음</span>');
+			}else if(!checkId()){
+				id=$('input').eq(0).after('<span class="err">영문,숫자만 가능 (첫글자 영문)</span>');
+			}
+			
+			var pw=$('input').eq(1).val();
+			if(pw==''){
+				pw=$('input').eq(1).after('<span class="err">값이 비었음</span>');
+			}else if(!checkPw()){
+				pw=$('input').eq(1).after('<span class="err">영소,영대,숫자 조합</span>');
+			}
+			
+			var re=$('input').eq(2).val();
+			if(re==''){
+				re=$('input').eq(2).after('<span class="err">값이 비었음</span>');
+			}else if(!checkRe()){
+				re=$('input').eq(2).after('<span class="err">동일하지 않음</span>');
+			}
+		});	
+		
+	});
+	
+</script>
+</head>
+<body>
+	<h1>회원가입</h1>
+	<form>
+		<div>
+			<label for="id">ID</label>
+			<input type="text" name="id" id="id"/>
+		</div>
+		<div>
+			<label for="pw">비밀번호</label>
+			<input type="password" name="pw" id="pw"/>
+		</div>
+		<div>
+			<label for="recheck">비밀번호 확인</label>
+			<input type="password" name="recheck" id="recheck"/>
+		</div>
+		<div>
+			<button type="submit">회원가입</button>
+			<button type="reset">취소</button>
+		</div>
+	</form>
+</body>
+</html>

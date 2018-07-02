@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		width: 200px;
+		height: 200px;
+		background-color: yellow;
+	}
+	div>div{
+		width: 100px;
+		height: 100px;
+		background-color: aqua;
+	}
+</style>
+<script type="text/javascript" src="jQuery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	window.onload=function(){
+		/* var msg=$('p').text(); //text() 괄호안이 빈칸이면 글을 받아오고 ()안에 텍스트를 넣으면 기존텍스트를 대체함.
+		console.log(msg); */
+		$('div').html('<ol><li>menu1</li><li>menu2</li></ol>');
+		$('ol').html($('ul'));
+		
+		/* var h2=$('<h2/>').text('msg');
+		$('div').html(h2); */
+	};
+</script>
+</head>
+<body>
+	<h1>하위 노드제어</h1>
+	<p>하위 노드에는 엘리먼트와 텍스트노드가 있음</p>
+	<div>
+		<div>
+			<ol></ol>
+		</div>
+	</div>
+	<ul>
+		<li>menu1</li>
+		<li>menu2</li>
+		<li>menu3</li>
+		<li>menu4</li>
+	</ul>
+</body>
+</html>

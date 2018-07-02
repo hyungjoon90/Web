@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//location 객체
+	function go(a){
+		//window.location.replace("http://"+a);
+		location.href=a+".html";
+	}
+	
+	function re(){
+		window.location.reload();
+	}
+	
+	console.log(location.href); //주소
+	console.log(location.protocol);
+	console.log(location.host); //호스트
+	console.log(location.hostname); //호스트네임
+	console.log(location.port); //포트
+	console.log(location.pathname); //경로
+	console.log(location.search); //파라미터
+	
+</script>
+</head>
+<body>
+	<button onclick="go('ex02');">ex02</button>
+	<button onclick="go('ex09');">ex09</button>
+	<button onclick="go('naver.com');">naver</button>
+	<button onclick="go('daum.net');">daum</button>
+	<button onclick="go('google.com');">google</button>
+	<input type="text">
+	<button onclick="re();">reload</button>
+</body>
+</html>

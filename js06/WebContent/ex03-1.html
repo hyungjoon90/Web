@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	section>img{
+		width:100%;
+	}
+	header>h1{
+		width:135px;
+		text-indent:-9999px;
+		background-image: url("imgs/img02.jpg");
+		background-repeat: no-repeat;
+	}
+	nav{
+		background-color: silver;
+		height:50px;
+		/* overflow: hidden; */
+	}
+	nav>ul{
+		padding: 0px;
+		width: 600px;
+		margin: 0px auto;
+	}
+	nav>ul>li{
+		/* overflow: hidden; */
+		float:left;
+		list-style: none;
+		width: 148px;
+		height: 50px; 
+		background-color: gray;
+		margin: 0px 1px;
+		text-align: center;
+		line-height: 50px;
+	}
+	nav>ul>li>ul{
+		display: none;
+		padding: 0px;
+		position: relative;
+		top: 0px;
+		
+	}
+	nav>ul>li>ul>li{
+		list-style: none;
+		border-top-color: white;
+		border-top-style: solid;
+		border-top-width: 1px;
+
+	}
+	nav>ul>li>ul>li>a{
+		height:50px;
+		display: block;
+		background-color: silver;
+		text-decoration: none;
+		text-align: center;
+		line-height: 50px;
+	}
+	section{
+		clear: both;
+	}
+</style>
+<script type="text/javascript">
+	var menu,li,overEvent,outEvent;
+	window.onload=function(){
+		menus=document.querySelectorAll('nav>ul>li');
+		
+		overEvent=function(){
+			var ul=this.querySelector('ul');
+			ul.style.display='block';
+		};
+		outEvent=function(){
+			var ul=this.querySelector('ul');
+			ul.style.display='none';
+		};
+		
+		for(var i=0; i<menus.length; i++){
+			menus[i].addEventListener('mouseover',overEvent);
+			menus[i].addEventListener('mouseout',outEvent);
+		}
+		
+	};
+</script>
+</head>
+<body>
+	<header>
+		<h1>비트교육센터</h1>
+	</header>
+	<nav>
+		<ul>
+			<li>
+				menu1
+				<ul>
+					<li><a href="">menu1-1</a></li>
+					<li><a href="">menu1-2</a></li>
+					<li><a href="">menu1-3</a></li>
+					<li><a href="">menu1-4</a></li>
+				</ul>
+			</li>
+			<li>
+				menu2
+				<ul>
+					<li><a href="">menu2-1</a></li>
+					<li><a href="">menu2-2</a></li>
+					<li><a href="">menu2-3</a></li>
+					<li><a href="">menu2-4</a></li>
+				</ul>
+			</li>
+			<li>
+				menu3
+				<ul>
+					<li><a href="">menu3-1</a></li>
+					<li><a href="">menu3-2</a></li>
+					<li><a href="">menu3-3</a></li>
+					<li><a href="">menu3-4</a></li>
+				</ul>
+			</li>
+			<li>
+				menu4
+				<ul>
+					<li><a href="">menu4-1</a></li>
+					<li><a href="">menu4-2</a></li>
+					<li><a href="">menu4-3</a></li>
+					<li><a href="">menu4-4</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<section>
+		<h1>환영합니다.</h1>
+		<br/><br/><br/><br/><br/><br/><br/><br/>
+		<img alt="main" src="imgs/img01.jpg">
+	</section>
+	<footer>
+		copyright
+	</footer>
+</body>
+</html>

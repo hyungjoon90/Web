@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	var su=1;
+	var imgLoop;
+	
+	function loop(){
+		su++;
+		if(su>9){su=1;}
+		$('img').attr('src','imgs/img0'+su+'.jpg');
+	}
+	
+	function backLoop(){
+		su--;
+		if(su<1){su=9;}
+		$('img').attr('src','imgs/img0'+su+'.jpg');
+	}
+	
+	
+	
+	$(document).ready(function(){
+		$('button').eq(0).css('display','none');
+		$('button').eq(1).css('display','none');
+		$('button').click(function(){
+			var idx=$('button').index(this);
+			if(idx==1){
+				loop();
+				clearInterval(imgLoop);
+				imgLoop=setInterval(function(){$('button:eq(1)').prev().click();}, 1000);
+			}else if(idx==0){
+				backLoop();
+				clearInterval(imgLoop);
+				imgLoop=setInterval(function(){$('button:eq(1)').prev().click();}, 1000);
+			}else if(idx==2){
+				//imgLoop=setInterval(loop, 1000);
+				imgLoop=setInterval(function(){$('button:eq(1)').prev().click();}, 1000);
+			}else if(idx==3){
+				clearInterval(imgLoop);
+			}else if(idx==4){
+				clearInterval(imgLoop);
+				su=0;
+				loop();
+			}
+		});
+	});
+</script>
+</head>
+<body>
+
+
+	<h1>케러셀 이미지 롤링</h1>
+	<img alt="img" src="imgs/img01.jpg">
+	<button>prev</button>
+	<button>next</button>
+	<button>play</button>
+	<button>pause</button>
+	<button>stop</button>
+</body>
+</html>

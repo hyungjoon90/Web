@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	//var ele=document.querySelector('form');
+	window.onload=function(){
+		var color=['#cccccc','#fcff0f','#cc00ff','#fffccf'];
+		/*
+		$('p:first-child').children().first().next().parent().next().css('background-color','gray');
+		//체이닝 기법
+		*/
+		/*
+		var arr=$('p');
+		for(var i=0; i<arr.length; i++){
+			$(arr[i]).css('background-color','#'+(i+5)+(i+5)+'0000');
+		}
+		*/
+		/*
+		$('p').each(function(){//<p>태그 수만큼 반복
+			//console.log(this);
+			$(this).css('background-color','gray');
+		});
+		*/
+		$('p').each(function(idx,ele){//<p>태그 수만큼 idx 반복
+			console.log(idx,ele);
+			$(ele).css('background-color',color[idx]);
+		});
+	};
+	
+</script>
+</head>
+<body>
+	<h1>jQuery node접근</h1>
+	<form action="">
+		<p><label for="id">id</label>
+		<input type="text" name="id" id="id"></p>
+		
+		<p><label for="pw">pw</label>
+		<input type="password" name="pw" id="pw"></p>
+		
+		<p><input type="radio" name="ra1" id="ra1">
+		<label for="ra1">ra1</label>
+		<input type="radio" name="ra2" id="ra2">
+		<label for="ra2">ra2</label></p>
+
+		<p><input type="checkbox" name="ch1" id="ch1">
+		<label for="ch1">ch1</label>
+		<input type="checkbox" name="ch2" id="ch2">
+		<label for="ch2">ch1</label></p>
+
+		<select>
+			<option>item1</option>
+			<option>item2</option>
+			<option>item3</option>
+			<option>item4</option>
+		</select>
+		<br/>
+		<br/>
+		<button type="submit">submit</button>
+		<button type="reset">reset</button>
+		
+	</form>
+</body>
+</html>

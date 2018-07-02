@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+		/* padding:0px;
+		margin: 0px; */
+	}
+	body>div{
+		width: 200px;
+		height: 200px;
+		background-color: yellow;
+	}
+	div>div{
+		display: inline-block;
+		width: 25px;
+		height: 25px;
+	}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+		var div=document.querySelector('div');
+		/* div.onmouseup=function(e){
+			 for(var temp in e){
+				console.log(e);	
+			}
+			//console.log(e.x,e.y); //찍었을때 좌표
+			//console.log(e.pageX,e.pageY); //body기준(절대)
+			//console.log(e.clientX,e.clientY); //client 기준(절대)
+			
+			//console.log(e.screenX,e.screenY); //screen 기준(절대)
+			console.log(e.offsetX,e.offsetY); //div 엘리먼트 기준(상대)
+			console.log('마우스 눌렸다 올라옴');
+		}; */
+		div.onmousemove=function(e){
+			var obj=document.querySelector('div>div');
+			var x=e.x;
+			var y=e.y;
+			obj.style.marginLeft=x+'px';
+			obj.style.marginTop=y+'px';
+		};
+		
+		/* div.onclick=function(e){
+			var obj=document.querySelector('div>div');
+			var x=e.x;
+			var y=e.y;
+			obj.style.marginLeft=x+'px';
+			obj.style.marginTop=y+'px';
+		}; */
+		
+		/* div.onclick=function(){
+			console.log('클릭');
+		};
+		div.onmousedown=function(){
+			console.log('마우스 눌림');
+		};
+		div.onmouseover=function(){
+			console.log('마우스 포커스 진입');
+		};
+		div.onmouseout=function(){
+			console.log('마우스 포커스 빠져나감');
+		};
+		div.onmousemove=function(){
+			console.log('마우스 움직임');
+		}; */
+	};
+</script>
+</head>
+<body>
+	<div>
+		<div>◆</div>
+	</div>
+</body>
+</html>

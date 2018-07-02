@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+</style>
+<script type="text/javascript" src="jQuery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	$(document).on('ready',function(){
+		$('div').animate({'margin-left':'300px'},3000)
+				.animate({'margin-top':'300px'},3000)
+				.animate({'margin-left':'0px'},3000)
+				.animate({'margin-top':'0px'},3000);
+	});
+</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

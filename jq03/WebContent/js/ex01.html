@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>회원가입</h1>
+	<form>
+		<div>
+			<label for="id">id</label>
+			<input type="text" name="id" id="id"/>
+		</div>
+		<div>
+			<label for="pw">pw</label>
+			<input type="password" name="pw" id="pw"/>
+		</div>
+		<div>
+			<label for="re">pw확인</label>
+			<input type="password" id="re"/>
+		</div>
+		<div>
+			<label for="name">name</label>
+			<input type="text" name="name" id="name"/>
+		</div>
+		<div>
+			<label for="age">age</label>
+			<input type="range" name="age" id="age" min="1" max="99"/>
+		</div>
+		<div>취미
+			<input type="checkbox" name="ho1" id="ho1" value="hobby1"/>
+			<label for="ho1">야구</label>
+			<input type="checkbox" name="ho2" id="ho2" value="hobby2"/>
+			<label for="ho2">농구</label>
+			<input type="checkbox" name="ho3" id="ho3" value="hobby3"/>
+			<label for="ho3">배구</label>
+		</div>
+		<div>학력
+			<select name="edu">
+				<option>고졸</option>
+				<option>초대졸</option>
+				<option>학사</option>
+				<option>석사</option>
+			</select>
+		</div>
+		<div>지원분야
+			<input type="radio" name="field" id="field1" value="field1"/>
+			<label for="field1">영업</label>
+			<input type="radio" name="field" id="field2" value="field2"/>
+			<label for="field2">생산</label>
+			<input type="radio" name="field" id="field3" value="field3"/>
+			<label for="field3">관리</label>
+			<input type="radio" name="field" id="field4" value="field4"/>
+			<label for="field4">회계</label>
+		</div>
+		<div>
+			<button type="submit">submit</button>
+			<button type="reset">reset</button>
+			<button type="button">button</button>
+		</div>
+	</form>
+</body>
+</html>

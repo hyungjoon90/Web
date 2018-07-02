@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#id01{
+		color:gray;
+	}
+	
+	.cl01{
+		color:blue;
+	}
+	
+	p{
+		color: red;
+	}
+	/*아이디>클래스>태그 지시자순 */
+</style>
+<script type="text/javascript">
+	document.write("<h1 style='color:red;' onclick='func01();'>추가</h1>");
+	
+	function func01(){
+		alert('버튼1 클릭');
+	}
+	function pageOpen(){
+		var bttns=document.querySelectorAll('button');
+		var btn1=bttns[0];
+		var btn2=bttns[1];
+		btn2.onclick=function(){
+			console.log('버튼2 클릭');
+			btn1.onclick();
+		};
+	}
+	
+	window.onload=function(){
+		pageOpen();
+	};
+</script>
+</head>
+<body>
+	<h1>이벤트</h1>
+	<p class='cl01'>태그,클래스</p>
+	<p>태그</p>
+	<p class='cl01'>클래스</p>
+	<p style="color:yellow" id='id01' class='cl01'>태그,클래스,아이디</p>
+	<p>이벤트의 종류는 크게 3가지로 분류가능합니다.</p>
+	<button onclick='func01();'>인라인방식</button>
+	<button>메서드방식</button>
+	<button>콜백방식</button>
+</body>
+</html>

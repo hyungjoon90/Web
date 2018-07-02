@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		width: 200px;
+		height: 200px;
+		background-color: yellow;
+	}
+</style>
+<script type="text/javascript">
+	var a,form,div;
+	window.onload=function(){
+		a=document.querySelector('a');
+		form=document.querySelector('form');
+		div=document.querySelector('div');
+		
+		div.addEventListener('click', function(){
+			console.log('div click');
+		});
+		
+		/* a.addEventListener('click', function(e){
+			e.preventDefault(false);
+			div.innerHTML=this;
+		}); */
+		a.addEventListener('click', function(e){
+			e.preventDefault(false);
+			div.innerHTML=this.innerText;
+		});
+		form.addEventListener('submit',function(e){
+			e.preventDefault(false);
+			var msg=this.querySelector('input').value;
+			if(div.innerHTML){
+				div.innerHTML+="<br/>"+msg
+			}else{
+				div.innerHTML=msg
+			}
+		});
+	};
+	
+</script>
+</head>
+<body>
+	<h1>기본 객체에 이벤트 바인딩</h1>
+	<a href="ex01.html">이동</a>
+	<form action="ex01.html">
+		<input type="text"><button>전송</button>
+	</form>
+	<div></div>
+</body>
+</html>

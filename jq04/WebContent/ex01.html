@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#target{
+		width: 100px;
+		height: 100px;
+		background-color: blue;
+		position: absolute;
+	}
+
+</style>
+<script type="text/javascript" src="jQuery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="jQueryUi/jquery-ui.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var x=$('#target').width();
+		var y=$('#target').height();
+		console.log(x,y);
+		var cnt=0;
+		$('button').each(function(idx,ele){
+			$(ele).click(function(){
+				/*
+				if(idx==0){$('#target').hide(1000);}
+				if(idx==1){$('#target').show(1000);}
+				if(idx==2){$('#target').toggle(1000);}
+				*/
+				
+				/*
+				if(idx==0){$('#target').fadeOut(1000);}
+				if(idx==1){$('#target').fadeIn(1000);}
+				if(idx==2){$('#target').fadeToggle(1000);}
+				*/
+				/*
+				if(idx==0){$('#target').slideUp(1000);}
+				if(idx==1){$('#target').slideDown(1000);}
+				if(idx==2){$('#target').slideToggle(1000);}
+				*/
+				if(idx==0){
+					$('#target').animate({'left':'300px'},1000,function(){cnt=3;});
+					$('#target').animate({'top':'300px'},1000,function(){cnt=2;});
+					$('#target').animate({'left':'0px'},1000,function(){cnt=1;});
+					$('#target').animate({'top':'100px'},1000,function(){cnt=0;});
+				}
+				if(idx==1){
+					//$('#target').finish();
+					/* for(var i=0; i<cnt;i++){
+						$('#target').stop();
+					} */
+					//console.log($('#target').queue().length);
+					//$('#target').queue([]).stop();
+					//$('#target').clearQueue().stop();
+					$('#target').dequeue();
+				}
+				if(idx==2){$('#target').slideToggle(1000);}
+			});
+			//$('#target').animate({left:'300px'},1000,'swing').animate({top:'300px'},1000,'swing');
+			/*
+			$('#target').animate({'left':'300px'},1000);
+			$('#target').animate({'top':'300px'},1000);
+			$('#target').animate({'left':'0px'},1000);
+			$('#target').animate({'top':'0px'},1000);
+			*/
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<button>숨김</button>
+	<button>보기</button>
+	<button>토글</button>
+	<div id="target"></div>
+	<h1>애니메이션</h1>
+</body>
+</html>

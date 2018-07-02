@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//$('#target').load('ex02.html');
+		$.ajax('ex15.json',{
+			async:true,
+			type:'post',
+			data:[{name:'id',value:'root'},{name:'pw',value:'1234'}],//{id:'user1',pw:'4321'},//"id=guest&pw=1234",
+			error:function(xhr,status,err){
+				console.log(status); //"timeout", "error", "abort", and "parsererror".
+				console.log(err); // 구체적 사유.(HTTP) "Not Found" or "Internal Server Error."
+			},
+			dataType:"text",
+			jsonCallback:"myCallback",
+			success:function(data){
+				console.log(typeof data);
+				console.log(data);
+				//console.log($(data).children().children().children().eq(0).text());
+				//var msg=$(data).filter('h1').html();
+				/*
+				$('#target').html("<h2>"+data.root[0].num+"</h2>");
+				$('#target').append("<h2>"+data.root[0].name+"</h2>");
+				*/
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>ajax통신</h1>
+	<div id="target"></div>
+	<p>the message is loading message</p>
+</body>
+</html>

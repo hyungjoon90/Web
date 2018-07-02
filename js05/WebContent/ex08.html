@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var a,form,strong;
+	window.onload=function(){
+		a=document.querySelector('a');
+		form=document.querySelector('form');
+		strong=document.querySelector('strong');
+		strong.onclick=function(){
+			//window.location.replace("ex07.html");
+			window.location.href="ex07.html";
+			//a.click();
+		};
+		a.onclick=function(e){
+			e.preventDefault(); //엘리먼트의 기본기능 취소
+			alert('alink click');
+			//return false; //return이 false일 경우 <a>태그를 실행하지 못함
+		};
+		form.submit=function(e){
+			e.preventDefault();
+			console.log(this.querySelector('input').value);
+		};
+	};
+
+</script>
+</head>
+<body>
+	<h1>html의 기능을 갖는 태그</h1>
+		<input type="text" name="id">
+	<p>대표적으로 <strong>아래</strong> 두 태그</p>
+	<a href="ex07.html">link</a>
+	<form action="">
+		<input type="text" name="id">
+		<button type="submit">전 송</button>
+	</form>
+</body>
+</html>

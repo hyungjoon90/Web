@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#bigImg{
+		width:320px;
+		height: 320px;
+		overflow: hidden;
+	}
+	#bigImg>ul{
+		padding: 0px;
+		width:1920px;
+	}
+	#bigImg>ul>li{
+		width:320px;
+		float: left;
+		list-style: none;
+	}
+	#bigImg>ul>li>img{}
+	
+	#thumbnail{}
+	#thumbnail>ul{}
+	#thumbnail>ul>li{}
+	#thumbnail>ul>li>img{}
+</style>
+
+<script type="text/javascript" src="jQuery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	var cnt=0;
+	$(document).ready(function(){
+		$('#thumbnail>a').each(function(idx,ele){
+			if(idx==2){
+				$(ele).attr('alt',''+idx);
+			}else{
+				$(ele).removeAttr('alt');
+			}
+			
+			$(ele).click(function(e){
+				e.preventDefault();
+				if(idx==cnt+2){
+					$(ele).attr('alt',idx);
+				}else{
+					$(ele).removeAttr('alt');
+				}
+				if(idx==1){
+					console.log('cnt:'+ cnt);
+					if(cnt<3){
+						cnt++;
+						$('#thumbnail>ul').animate({'margin-left':'-'+(136*cnt)+'px'},1000);
+					}
+				}
+			});
+		});
+		$('#thumbnail>ul>li>a').each(function(idx,ele){
+			$(ele).click(function(e){
+				e.preventDefault();
+				big(idx);
+				if($(this).attr('alt')){$('#thumbnail>a').eq(1).click();}
+			});
+		});
+	});
+	
+	function big(su){
+		$('#bigImg>ul').animate({'margin-left':'-'+(320*su)+'px'},1000);
+	};
+</script>
+</head>
+<body>
+	<div>
+		<div id="bigImg">
+			<ul>
+				<li><img alt="big1" src="big/big1.jpg"></li>
+				<li><img alt="big2" src="big/big2.jpg"></li>
+				<li><img alt="big3" src="big/big3.jpg"></li>
+				<li><img alt="big4" src="big/big4.jpg"></li>
+				<li><img alt="big5" src="big/big5.jpg"></li>
+				<li><img alt="big6" src="big/big6.jpg"></li>
+			</ul>
+			<a href="#">이전</a>
+			<a href="#">이후</a>
+		</div>
+		<div id="thumbnail">
+			<ul>
+				<li><a href="#"><img alt="img1" src="small/img1.jpg"></a></li>
+				<li><a href="#"><img alt="img2" src="small/img2.jpg"></a></li>
+				<li><a href="#"><img alt="img3" src="small/img3.jpg"></a></li>
+				<li><a href="#"><img alt="img4" src="small/img4.jpg"></a></li>
+				<li><a href="#"><img alt="img5" src="small/img5.jpg"></a></li>
+				<li><a href="#"><img alt="img6" src="small/img6.jpg"></a></li>
+			</ul>
+			<a href="#">이전</a>
+			<a href="#">이후</a>
+		</div>
+	</div>
+</body>
+</html>

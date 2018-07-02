@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var table,xhr,xml,students,msg;
+	function myCallBack(){
+		if(xhr.readyState==4&&xhr.status==200){
+			xml=xhr.responseXML;
+			students=xml.childNodes[0].childNodes; //개행이 text로 표시됨.
+			console.log((students.length-1)/2);
+			msg="<tr><td>학번</td><td>이름</td><td>국어</td><td>영어</td><td>수학</td></tr>";
+			/* for(var i=0;i<(students.length-1)/2;i++){//i가 0일때 1, i가 1일때 3, i가 2일때 5
+				var num,name,kor,eng,math;
+				
+				num=xml.childNodes[0].childNodes[1+i*2].childNodes[1].childNodes[0].nodeValue;
+				name=xml.childNodes[0].childNodes[1+i*2].childNodes[3].childNodes[0].nodeValue;
+				kor=xml.childNodes[0].childNodes[1+i*2].childNodes[5].childNodes[0].nodeValue;
+				eng=xml.childNodes[0].childNodes[1+i*2].childNodes[7].childNodes[0].nodeValue;
+				math=xml.childNodes[0].childNodes[1+i*2].childNodes[9].childNodes[0].nodeValue;
+				msg+="<tr>";
+				msg+="<td>"+num+"</td>";
+				msg+="<td>"+name+"</td>";
+				msg+="<td>"+kor+"</td>";
+				msg+="<td>"+eng+"</td>";
+				msg+="<td>"+math+"</td>";
+				msg+="</tr>";
+				
+				} */
+				var students=xml.querySelectorAll('student');
+				var nums=xml.querySelectorAll('num');
+				var names=xml.querySelectorAll('name');
+				var kors=xml.querySelectorAll('kor');
+				var engs=xml.querySelectorAll('eng');
+				var maths=xml.querySelectorAll('math');
+				
+				for(var i=0; i<students.length;i++){
+					msg+="<tr>";
+					msg+="<td>"+nums[i].innerHTML+"</td>";
+					msg+="<td>"+names[i].innerHTML+"</td>";
+					msg+="<td>"+kors[i].innerHTML+"</td>";
+					msg+="<td>"+engs[i].innerHTML+"</td>";
+					msg+="<td>"+maths[i].innerHTML+"</td>";
+					msg+="</tr>";
+			}
+			table.innerHTML=msg;
+		}
+	}
+
+	function func(){
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=myCallBack;
+		xhr.open('get','./my.xml',true);
+		xhr.send();
+	}
+	window.onload=function(){
+		table=document.querySelector('table');
+		func();
+	};
+</script>
+</head>
+<body>
+	<h1>자바스크립트 통신 == Ajax통신</h1>
+	<p>Ajax(Asynchronous JavaScript and XML and JSON, 에이잭스)</p>
+	<table>
+	
+	</table>
+</body>
+</html>

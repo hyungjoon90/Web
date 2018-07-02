@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	var form;
+	window.onload=function(){
+		form=document.querySelector('form');
+		form.onsubmit=function(){
+			var id=$('#id').val();
+			var pw=$('#pw').val();
+			//var ra1=$('#ra1').prop("checked");
+			var ra;
+			$('input[type="radio"]').each(function(idx,ele){
+				if($(ele).prop('checked')){
+					ra=$(ele).val();
+				}
+			});
+			
+			var chk=[];
+			$('input[type="checkbox"]').each(function(){
+				if($(this).prop('checked')){
+					chk.push($(this).val());
+				}
+			});
+			
+			var select;
+			//select=$('select').val();
+			
+			$('select>option').each(function(){
+				if($(this).prop('selected')){
+					select=$(this).val();
+				}
+			});
+			
+			console.log('id:'+id);
+			console.log('pw:'+pw);
+			console.log('ra:'+ra);
+			console.log('chk:'+chk);
+			console.log('select:'+select);
+			
+			
+			return false;
+		};
+	};
+</script>
+</head>
+<body>
+	<h1>DOM속성 제어</h1>
+	<form action="#">
+		<p>
+			<label for="id">id</label><input type="text" id="id"/>
+		</p>
+		<p>
+			<label for="pw">pw</label><input type="password" id="pw"/>
+		</p>
+		<p>
+			<input type="radio" name="ra" value="ra1v" id="ra1"/><label for="ra1">ra1</label>
+			<input type="radio" name="ra" value="ra2v" id="ra2"/><label for="ra2">ra2</label>
+			<input type="radio" name="ra" value="ra3v" id="ra3"/><label for="ra3">ra3</label>
+		</p>
+		<p>
+			<input type="checkbox" value="ch1v" id="ch1"/><label for="ch1">ch1</label>
+			<input type="checkbox" value="ch2v" id="ch2"/><label for="ch2">ch2</label>
+			<input type="checkbox" value="ch3v" id="ch3"/><label for="ch3">ch3</label>
+		</p>
+		<p>
+			<select>
+				<option value="it1">item1</option>
+				<option value="it2">item2</option>
+				<option value="it3">item3</option>
+				<option value="it4">item4</option>
+			</select>
+		</p>
+		<p>
+			<input type="submit" value="전송"/>
+		</p>
+	</form>
+</body>
+</html>

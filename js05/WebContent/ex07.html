@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		width: 50px;
+		height: 50px;
+		/* background-color: red; */
+		margin:0px 0px;
+		background-image: url("imgs/air.png");
+		background-size:50px;
+	}
+</style>
+<script type="text/javascript">
+	var div,x,y;
+	window.onload=function(){
+		div=document.querySelector('div');
+		x=0;
+		y=0;
+		document.onkeydown=function(e){
+			console.log(e.keyCode+':이벤트발생');	
+			//w :87
+			// a:65 s:83 d:68
+			if(e.keyCode==87){
+				y-=10
+				if(y<0){y=0;}
+				div.style.marginTop=y+'px';
+			}else if(e.keyCode==83){
+				y+=10
+				div.style.marginTop=y+'px';
+			}else if(e.keyCode==65){
+				x-=10;
+				if(x<0){x=0;}
+				div.style.marginLeft=x+'px';
+			}else if(e.keyCode==68){
+				x=x+10;
+				div.style.marginLeft=x+'px';
+			}
+		};
+	};
+</script>
+
+</head>
+<body>
+	<div></div>
+</body>
+</html>

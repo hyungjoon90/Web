@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		width: 408px;
+		height: 136px;
+		overflow: hidden;
+	}
+	ul{
+		padding: 0px;
+		width: 1224px;
+	}
+	ul>li{
+		list-style:none;
+		float: left;
+	}
+	ul>li>img{
+		width:136px;
+		height: 136px;
+		/* border: 1px solid gray; */
+	}
+	div>ul{
+		animation-name:nextAni;
+		animation-duration: 12s;
+		animation-timing-function: linear;
+	}
+	/* ul>li:FIRST-CHILD {
+		animation-name:nextAni;
+		animation-duration: 2s;
+	} */
+	@keyframes nextAni{
+		0%{
+			margin-left: 0px;
+		}
+		50%{
+			margin-left: -816px;
+		}
+		100%{
+			margin-left: 0px;
+		}
+	}
+</style>
+<script type="text/javascript" src="jQuery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	/* function loop(){
+		$('ul>li:FIRST-CHILD').css('animation-name','nextAni');
+		$('ul>li:FIRST-CHILD').css('animation-duration','1s');
+		$('li').first().appendTo('ul');	
+	} */
+	var toggle=false;
+	
+	function ani(){
+		toggle=!toggle;
+		if(toggle){
+			$('ul').css('animation-play-state','paused');
+		}else{
+			$('ul').css('animation-play-state','running');
+		}
+		setTimeout(ani, 1000);
+	}
+	
+	$(document).ready(function(){
+		/* setInterval(function(){
+			$('li').first().appendTo('ul');	
+		}, 1000) */
+		//loop();
+		ani();
+		//setInterval(ani, 1000);
+		//setInterval(loop, 2000);
+		
+	});
+</script>
+</head>
+<body>
+	<h1>케러셀 이미지 롤링2</h1>
+	<div>
+		<ul>
+			<li><img alt="img01" src="imgs/img01.jpg"/></li>
+			<li><img alt="img01" src="imgs/img02.jpg"/></li>
+			<li><img alt="img01" src="imgs/img03.jpg"/></li>
+			<li><img alt="img01" src="imgs/img04.jpg"/></li>
+			<li><img alt="img01" src="imgs/img05.jpg"/></li>
+			<li><img alt="img01" src="imgs/img06.jpg"/></li>
+			<li><img alt="img01" src="imgs/img07.jpg"/></li>
+			<li><img alt="img01" src="imgs/img08.jpg"/></li>
+			<li><img alt="img01" src="imgs/img09.jpg"/></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		width:408px;
+		height: 136px;
+		overflow: hidden;
+	}
+	div>ul{
+		width: 816px;
+		height: 136px;
+		padding: 0px;
+		margin: 0px;
+	}
+	div>ul>li{
+		float:left;
+		list-style: none;
+	}
+	div>ul>li>img{
+		width: 136px;
+	}
+</style>
+<script type="text/javascript">
+	var div,ul,li,imgs;
+	var su=0;
+	function ulMove(){
+		//console.log(ul.style.marginLeft);
+		su++;
+		if(su>6){su=0;}
+		ul.style.marginLeft=-(su*136)+'px';
+	}
+	
+	
+	window.onload=function(){
+		div=document.querySelector('div');
+		ul=document.querySelector('ul');
+		lis=document.querySelectorAll('li');
+		imgs=document.querySelectorAll('img');
+		ul.setAttribute('style', 'margin-left:0px');
+		window.setInterval(ulMove, 1000);
+		
+		
+		
+	};
+</script>
+</head>
+<body>
+	<div>
+	<ul>
+		<li>
+			<img alt="" src="imgs/img01.jpg"/>
+		</li>
+		<li>
+			<img alt="" src="imgs/img02.jpg"/>
+		</li>
+		<li>
+			<img alt="" src="imgs/img03.jpg"/>
+		</li>
+		<li>
+			<img alt="" src="imgs/img04.jpg"/>
+		</li>
+		<li>
+			<img alt="" src="imgs/img05.jpg"/>
+		</li>
+		<li>
+			<img alt="" src="imgs/img06.jpg"/>
+		</li>
+	</ul>
+	</div>
+</body>
+</html>

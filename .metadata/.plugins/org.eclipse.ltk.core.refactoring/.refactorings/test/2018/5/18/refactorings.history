@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.bit.ex01.Print.java&apos; to &apos;MyPrinter.java&apos;&#x0D;&#x0A;- Original project: &apos;test&apos;&#x0D;&#x0A;- Original element: &apos;com.bit.ex01.Print.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.bit.ex01.MyPrinter.java&apos;" description="Rename compilation unit &apos;Print.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.bit.ex01{Print.java" name="MyPrinter.java" references="false" stamp="1525246700240" version="1.0"/>
+</session>

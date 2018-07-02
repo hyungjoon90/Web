@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	header,nav,section,footer{
+		margin: 0px auto;
+		width: 900px;
+	}
+	header>h2{
+		height: 95px;
+		background-image: url("");
+		background-repeat: no-repeat;
+		text-indent: -9999px;
+	}
+	nav{
+		background-color: gray;
+		overflow: hidden;
+	}
+	nav>ul{
+		padding: 0px;
+		width: 488px;
+		margin: 0px auto;
+	}
+	nav>ul>li{
+		float: left;
+		list-style: none;
+		margin: 0px 1px;
+	}
+	nav>ul>li>a{
+		display: block;
+		width: 120px;
+		color:white;
+		background-color:rgb(200,200,200);
+		text-align:center;
+		text-decoration: none;
+		font-size: 16pt;
+	}
+	nav>ul>li>ol{
+		padding: 0px;
+		display: none;
+		position: absolute;
+	}
+	nav>ul>li>ol>li{
+		list-style: none;
+	}
+	nav>ul>li>ol>li>a{
+		display: block;
+		width: 120px;
+		color:white;
+		background-color:gray;
+		text-align:center;
+		text-decoration: none;
+		font-size: 16pt;
+	}
+	section{
+		clear: both;
+	}
+	section>div{
+		width: 320px;
+		/* height: 320px; */
+		overflow: hidden;
+		margin: 0px auto;
+		position: relative;
+	}
+	section>div>ul{
+		width: 1920px;
+		padding: 0px;
+	}
+	section>div>ul>li{
+		list-style: none;
+		float: left;
+	}
+	section>div>a{
+		background-color: silver;
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		border-radius:15px;
+		text-decoration:none;
+		text-align: center;
+		line-height: 30px;
+		font-size: 20px;
+		position: absolute;
+		top: 145px;
+	}
+	section>div>a:nth-child(3){
+		left: 290px;
+	}
+	footer{
+		clear: both;
+	}
+</style>
+<script type="text/javascript" src="jQuery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	var x=0;
+	var y=0;
+	var cnt=0;
+	$(document).ready(function(){
+		$('nav>ul>li').mouseenter(function(){
+			$(this).children().last().clearQueue().stop().slideDown(500);
+		}).mouseleave(function(){
+			$(this).children().last().clearQueue().stop().slideUp(500);
+		});
+		$('nav>ul>li>ol>li>a').mouseenter(function(){
+			$(this).css('color','red');
+		}).mouseleave(function(){
+			$(this).css('color','white');
+		});
+		$('section>div>a').each(function(idx,ele){
+			$(ele).click(function(){
+				if(idx==1){
+					if(cnt==5){cnt=0;}
+					cnt++;
+					$(ele).prev().prev().animate({'margin-left':'-'+(320*cnt)+'px'},1000);
+					
+				}
+				if(idx==0){
+					cnt--;
+					if(cnt<0){cnt=0;}
+					$(ele).prev().animate({'margin-left':'-'+(320*cnt)+'px'},1000);
+					
+				}
+				return false;
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<header>
+		<h2>비트교육센터</h2>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#">menu1</a>
+				<ol>
+					<li><a href="#">menu1-1</a></li>
+					<li><a href="#">menu1-2</a></li>
+					<li><a href="#">menu1-3</a></li>
+				</ol>
+			</li>
+			<li><a href="#">menu2</a>
+				<ol>
+					<li><a href="#">menu2-1</a></li>
+					<li><a href="#">menu2-2</a></li>
+					<li><a href="#">menu2-3</a></li>
+					<li><a href="#">menu2-4</a></li>
+				</ol>
+			</li>
+			<li><a href="#">menu3</a>
+				<ol>
+					<li><a href="#">menu3-1</a></li>
+					<li><a href="#">menu3-2</a></li>
+					<li><a href="#">menu3-3</a></li>
+					<li><a href="#">menu3-4</a></li>
+				</ol>
+			</li>
+			<li><a href="#">menu4</a>
+				<ol>
+					<li><a href="#">menu4-1</a></li>
+					<li><a href="#">menu4-2</a></li>
+				</ol>
+			</li>
+		</ul>
+	</nav>
+	<section>
+		<div>
+		<ul>
+			<li><img alt="img" src="big/big1.jpg"></li>
+			<li><img alt="img" src="big/big2.jpg"></li>
+			<li><img alt="img" src="big/big3.jpg"></li>
+			<li><img alt="img" src="big/big4.jpg"></li>
+			<li><img alt="img" src="big/big5.jpg"></li>
+			<li><img alt="img" src="big/big6.jpg"></li>
+		</ul>
+		<a href="#">◀</a>
+		<a href="#">▶</a>
+		</div>
+	</section>
+	<footer>
+		<address>
+			주소냐용~
+		</address>
+		copyright
+	</footer>
+</body>
+</html>

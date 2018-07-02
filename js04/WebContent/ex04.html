@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>제목</h1>
+	<ul>
+	</ul>
+	
+	<input type="text">
+	<button onclick="add();">추가</button>
+	<button onclick="del();">삭제</button>
+	<script type="text/javascript">
+	
+		function del(){
+			var ul=document.querySelectorAll("ul");
+			var ulhtml=ul.innerHTML;
+			var start=0;
+			var end=ulhtml.lastIndexOf('<li>');
+			ul.innerHTML = ulhtml.substr(start,end);
+		}
+	
+		function add(){
+			var input=document.querySelector('input');
+			var msg=input.value;
+			var ul=document.querySelector('ul');
+			ul.innerHTML=ul.innerHTML+'<li>'+msg+'</li>';
+		}
+	</script>
+</body>
+</html>

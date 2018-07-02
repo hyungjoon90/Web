@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div>ul{}
+	div>ul>li{
+		float: left;
+		list-style: none;
+	}
+	div{
+		clear: both;
+	}
+	div>p{
+		color: green;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	//메서드(인자1,인자2)=>인자2 주입, setter
+	//메서드(인자) => 인자 , getter
+	var margin=0;
+	window.onload=function(){
+		//$('h1+p').css('color','red');
+		//alert($('h2+p').eq(1).css('color'));
+		//alert($('li').eq(1).css('float'));
+		//setInterval(start, 1000);
+		
+		var link=$('a').eq(0).attr('href');
+		//$('a').eq(1).attr('href','https://jquery.com/');
+		/* $('a').attr('href',function(idx,attr){
+			console.log(attr);
+		}); */
+		$('a').eq(1).attr({href:'ex01.html'}); //JSON
+	};
+	
+	function start(){
+		margin=parseInt($('#target').css('margin-left'))+10;
+		$('#target').css('margin-left',margin+'px');
+	}
+</script>
+</head>
+<body>
+	<div>
+		<a href="http://naver.com">naver</a>
+		<a href="http://daum.net">daum</a>
+		<a href="http://google.co.kr">google</a>
+	</div>
+	<div>
+		<ul>
+			<li>item1</li>
+			<li>item2</li>
+			<li>item3</li>
+		</ul>
+	</div>
+	<div>
+		<h1>스타일 제어</h1>
+		<p>내용</p>
+		<div>
+			<h2>제목</h2>
+			<p>내용1</p>
+			<p>내용2<a href="#">link</a></p>
+		</div>
+		<div id="target">
+			<h2>제목</h2>
+			<p>내용1<span>계속</span></p>
+		</div>
+	</div>
+</body>
+</html>

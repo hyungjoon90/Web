@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+	var div,msg;
+	window.onload=function(){
+		div=document.querySelector('div');
+		var xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			/*
+			통신상태(단계)
+			0: request 전
+			1: server 접속 시점
+			2: request 받는 시점
+			3: request 를 처리하는 시점 
+			4: request finished and response is ready 처리가 끝나고 응답이 준비 됐을때
+			
+			통신결과 status (HTTP 상태코드)
+			- 200 : 서버가 응답을 완료했으며, 아무런 문제가 없다.
+			- 304 : 응답 내용이 이전 응답 내용과 동일하다.
+			- 404 : 페이지를 찾을 수 없다.
+			- 500 : 서버 내부에서 오류가 발생했다.
+			*/
+			if(xhr.readyState==4&&xhr.status==200){
+				msg=xhr.responseText;
+				div.innerHTML=msg;
+				console.log(xhr.status);
+			}else{
+				div.innerText='오류: 재시도 바람';
+			}
+		};
+		xhr.open('get','http://localhost:8080/Ajax01/text.txt',true); //method,url,[동기(false)|비동기(true)]
+		xhr.send();
+	};
+</script>
+<body>
+	<h1>ex03 page</h1>
+	<p>비동기 통신으로 아래를 가져옵니다.</p>
+	<div></div>
+	<p>이렇게 가져왔습니다.</p>
+</body>
+</html>

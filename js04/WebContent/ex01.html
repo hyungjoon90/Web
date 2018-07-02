@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	button{
+		top:0px;
+		position: fixed;
+	}
+
+</style>
+<script type="text/javascript">
+	//BOM
+	/*
+	1. window
+	2. history
+	3. location
+	4. naveigator
+	5. screen
+	var w=window.screen.width;
+	var h=window.screen.height;
+	var c=window.screen.color;
+	var w2=window.screen.availWidth;
+	var h2=window.screen.availHeight;
+	console.log(w2,h2,c);
+	*/
+	var f;
+	function func01(){
+		f=window.open('http://www.naver.com','myframe'); //'width=500,height=500'
+	}
+	function func02(){
+		f.document.write("<h1>작성</h1>");
+		/*
+		f.moveBy(100, 100); //상대이동
+		f.moveTo(300, 300); //절대이동
+		f.resizeBy(300, 300); //상대크기
+		f.resizeTo(300, 300); //절대크기 
+		window.scrollBy(0,10);
+		window.scrollTo(0,0);
+		*/
+	}
+</script>
+</head>
+<body>
+	<button onclick="func01();">새창열기</button>
+	<button onclick="func02();">다음으로 열기</button>
+</body>
+</html>

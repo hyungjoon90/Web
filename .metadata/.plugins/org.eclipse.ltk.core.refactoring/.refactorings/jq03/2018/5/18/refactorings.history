@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;jQuery&apos; to &apos;WebContent&apos;&#x0D;&#x0A;- Original project: &apos;jq03&apos;&#x0D;&#x0A;- Destination element: &apos;WebContent&apos;&#x0D;&#x0A;- Original element: &apos;jQuery&apos;" description="Copy folder" element1="WebContent/jQuery" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1525135749446" target="/jq04/WebContent" units="0" version="1.0"/>
+</session>

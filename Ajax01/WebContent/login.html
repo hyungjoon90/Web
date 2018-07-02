@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	header{}
+	header>h1{
+		float:left;
+	}
+	header>div{
+		width:300px;
+	}
+	header>div>h2{
+		font-size: 9pt;
+	}
+	header>form,header>div{
+		float:right;
+		padding: 30px;
+	}
+	nav{
+		clear:both;
+		background-color: lightgray;
+	}
+</style>
+<script type="text/javascript">
+	var form,inputs,xhr,msg;
+	
+	function result(){
+		if(xhr.readyState==4&&xhr.status==200){
+			msg=xhr.responseText;
+			form.outerHTML='<div>'+msg+'</div>';
+		}
+	}
+
+	function myAjax(a,b){
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=result;
+		xhr.open('get','result.jsp?id='+a+'&pw='+b,true);
+		xhr.send();
+	}
+	
+	window.onload=function(){
+		form=document.querySelector('header>form');
+		inputs=document.querySelectorAll('header>form input');
+		form.addEventListener('submit', function(e){
+				e.preventDefault(false);
+				myAjax(inputs[0].value,inputs[1].value);
+		});
+		
+	};
+</script>
+</head>
+<body>
+	<header>
+		<h1>비트교육센터</h1>
+		<form action="result.jsp">
+			<label for="id">id</label><input type="text" name="id"/>
+			<label for="pw">pw</label><input type="password" name="pw"/>
+		<button>로그인</button>
+	</form>
+	</header>
+	<nav>
+		<a href="">menu1</a>
+		<a href="">menu2</a>
+		<a href="">menu3</a>
+		<a href="">menu4</a>
+	</nav>
+	<section>
+		<img alt="main" src="imgs/img01.jpg"/>
+	</section>
+	<footer>
+		copyright
+	</footer>
+</body>
+</html>

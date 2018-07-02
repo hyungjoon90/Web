@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.cl01{
+		background-color: silver;
+	}
+	.cl02{
+		color: gray;
+	}
+	.cl03{
+		color: red;
+	}
+	.cl04{
+		color: blue;
+	}
+	.cl05{
+		color: green;
+	}
+	#id01{
+		color: red;
+	}
+	#id02{
+		background-color: blue;
+	}
+</style>
+<script type="text/javascript" src="jQuery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	window.onload=function(){
+		$('h1').addClass('cl01').addClass('cl02');
+		var su=0;
+		$('li').each(function(){
+			su++;
+			$(this).addClass('cl0'+su);
+		});
+		
+		$('li').addClass(function(idx,name){
+			console.log(name);
+		});
+		
+		$('h1').removeClass(function(idx,name){
+			$(this).removeClass(name);
+		});
+		
+	};
+</script>
+</head>
+<body>
+	<h1>디자인 속성</h1>
+	<p>css말고 </p>
+	<ul>
+		<li>menu1</li>
+		<li>menu2</li>
+		<li>menu3</li>
+		<li>menu4</li>
+		<li>menu5</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('form').submit(function(e){
+			/* $.get('ex05.json',function(data){
+				console.log(data);
+			},'json');	 */
+			e.preventDefault();
+			//var param="id="+$('#id').val()+"&pw="+$('#id').val();
+			//var param={id:$('#id').val(),pw:$('#id').val()};
+			var temp=$('form').serializeArray();
+			var param=$.param(temp);
+			console.log(param);
+			//var param=[];
+			/* $.post('login.json',param,function(data){
+				console.log(data);
+			}); */
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>그밖에...</h1>
+	<form>
+		<div><label for="id"></label><input type="text" name="id" id="id"/></div>
+		<div><label for="pw"></label><input type="text" name="pw" id="pw"/></div>
+		<div><button>전송</button></div>
+	</form>
+</body>
+</html>

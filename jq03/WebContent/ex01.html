@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+		width: 500px;
+		margin: 0px auto;
+	}
+	h1{
+		width: 500px;
+		border-bottom-style: double;
+		border-bottom-color: gray;
+		border-bottom-width: 2px;
+		text-align: center;
+	}
+	div>label:FIRST-CHILD,div>.label{
+		width: 35%;
+		display: inline-block;
+		background-color: lightgray;
+	}
+	form>div{
+		margin-bottom: 10px;
+	}
+	form>div:last-child{
+		text-align: center;
+	}
+	form>div>input[type="text"],form>div>input[type="password"],form>div>select{
+		width: 30%;
+	}
+	.err{
+		color: red;
+		font-style: italic;
+	}
+
+</style>
+<script type="text/javascript" src="jQuery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	
+	function checkId(){
+		var id=$('input').first().val();
+		for(var i=0; i<id.length; i++){
+			var su=id.charCodeAt(i);
+			console.log(su);
+			if(i==0){
+					if(!((su>=65 && su<=90) || (su>=97 && su<=122))){return false;}
+			}else{
+					if(!((su>=65 && su<=90) || (su>=97 && su<=122)|| (su>=48 && su<=57))){return false;}
+			}
+		}
+		return true;
+	}
+	
+	function checkPw(){
+		var boo1=false; //영어소문자
+		var boo2=false; //영어대문자
+		var boo3=false; //숫자
+		var pw=$('input').eq(1).val();
+		for(var i=0; i<pw.length; i++){
+			var su =pw.charCodeAt(i);
+			if(su>=65 && su<=90){boo1=true;}
+			if(su>=97 && su<=122){boo2=true;}
+			if(su>=48 && su<=57){boo3=true;}	
+		}
+		if(boo1 && boo2 && boo3){return true;}else{return false;}
+	}
+	
+	function checkRe(){
+		var pw = $('input').eq(1).val();
+		var re = $('input').eq(2).val();
+		if(pw==re){return true;}else{return false;}
+	}
+	
+	$(document).ready(function(){
+		$('form input').eq(0).focus();
+		$('form input').blur(function(e){
+			var i=$('form input').index(this);
+			$('.err').remove();
+			var param=$(this).val();
+			var err=$('<span/>').addClass('err');
+			var msg;
+				
+			if(param==''){
+				msg='값이 비었음';				
+			}else{
+				if(i==0 && !checkId()){msg='영문,숫자만 가능 (첫글자 영문)';}
+				if(i==1 && !checkPw()){msg='영소,영대,숫자 조합';}
+				if(i==2 && !checkRe()){msg='동일하지 않음</span>';}
+			}
+			err.text(msg);
+			param=$(this).after(err);	
+		});
+		
+		$('form').submit(function(){
+	
+			$('.err').remove();
+			
+			var id=$('input').eq(0).val();
+			if(id==''){
+				id=$('input').eq(0).after('<span class="err">값이 비었음</span>');
+			}else if(!checkId()){
+				id=$('input').eq(0).after('<span class="err">영문,숫자만 가능 (첫글자 영문)</span>');
+			}
+			
+			var pw=$('input').eq(1).val();
+			if(pw==''){
+				pw=$('input').eq(1).after('<span class="err">값이 비었음</span>');
+			}else if(!checkPw()){
+				pw=$('input').eq(1).after('<span class="err">영소,영대,숫자 조합</span>');
+			}
+			
+			var re=$('input').eq(2).val();
+			if(re==''){
+				re=$('input').eq(2).after('<span class="err">값이 비었음</span>');
+			}else if(!checkRe()){
+				re=$('input').eq(2).after('<span class="err">동일하지 않음</span>');
+			}
+			
+			var ch1 =$('input[type="checkbox"]').eq(0).prop("checked");
+			var ch2 =$('input[type="checkbox"]').eq(1).prop("checked");
+			var ch3 =$('input[type="checkbox"]').eq(2).prop("checked");
+			
+			if(!(ch1||ch2||ch3)){
+				$('form>div:eq(5)').append('<span class="err">적어도 하나 선택</span>');
+			}
+			
+			var radio="";
+			$('input[type="radio"]').each(function(){
+				if($(this).prop("checked")){radio=$(this).val();}
+			});
+			var result=confirm(radio+'부 지원이 맞습니까?')
+			return result;
+		});	
+		
+	});
+</script>
+
+</head>
+<body>
+	<h1>회원가입</h1>
+	<form>
+		<div>
+			<label for="id">id</label>
+			<input type="text" name="id" id="id"/>
+		</div>
+		<div>
+			<label for="pw">pw</label>
+			<input type="password" name="pw" id="pw"/>
+		</div>
+		<div>
+			<label for="re">pw확인</label>
+			<input type="password" id="re"/>
+		</div>
+		<div>
+			<label for="name">name</label>
+			<input type="text" name="name" id="name"/>
+		</div>
+		<div>
+			<label for="age">age</label>
+			<input type="range" name="age" id="age" min="1" max="99"/>
+		</div>
+		<div><span class="label">취미</span>
+			<input type="checkbox" name="ho1" id="ho1" value="hobby1"/>
+			<label for="ho1">야구</label>
+			<input type="checkbox" name="ho2" id="ho2" value="hobby2"/>
+			<label for="ho2">농구</label>
+			<input type="checkbox" name="ho3" id="ho3" value="hobby3"/>
+			<label for="ho3">배구</label>
+		</div>
+		<div><span class="label">학력</span>
+			<select name="edu">
+				<option>고졸</option>
+				<option>초대졸</option>
+				<option>학사</option>
+				<option>석사</option>
+			</select>
+		</div>
+		<div><span class="label">지원분야</span>
+			<input type="radio" name="field" id="field1" value="영업" checked="checked"/>
+			<label for="field1">영업부</label>
+			<input type="radio" name="field" id="field2" value="생산"/>
+			<label for="field2">생산부</label>
+			<input type="radio" name="field" id="field3" value="관리"/>
+			<label for="field3">관리부</label>
+			<input type="radio" name="field" id="field4" value="회계"/>
+			<label for="field4">회계부</label>
+		</div>
+		<div>
+			<button type="submit">submit</button>
+			<button type="reset">reset</button>
+			<button type="button">button</button>
+		</div>
+	</form>
+</body>
+</html>
