@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function myBack(){
+		window.history.back();
+	}
+</script>
+</head>
+<body>
+	<h1>ex09 page</h1>
+	<button onclick="myBack()">back</button>
+</body>
+</html>

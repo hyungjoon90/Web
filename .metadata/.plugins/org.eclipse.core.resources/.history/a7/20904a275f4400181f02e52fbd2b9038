@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	var d = new Date();
+	console.log(d.getYear()+1900+"년"); //1900년 이후로
+	console.log(d.getMonth()+1+"월");	//0~11월까지 나옴
+	console.log(d.getDate()+"일");
+</script>
+</head>
+<body>
+
+</body>
+</html>

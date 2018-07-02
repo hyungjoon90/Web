@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//내장함수
+	/*
+	alert("메시지창을 띄운다.");
+	---------------------------
+	var su=prompt("1~10까지 숫자중 아무거나 입력하세요.");
+	console.log(su);
+	----------------
+	*/
+	confirm("이동하시겠습니까?");
+	console.log(su);
+</script>
+</head>
+<body>
+
+</body>
+</html>

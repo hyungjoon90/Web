@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function myBack(){
+		window.history.back();
+	}
+	function myForward(){
+		window.history.forward();
+	}
+	function myBack2(){
+		window.history.go(-2); //페이지를 2번 뒤로간다. 양수면 앞으로 간다는뜻
+	}
+	console.log(history.length);
+</script>
+</head>
+<body>
+	<h1>ex09 page</h1>
+	<button onclick="myBack();">back</button>
+	<button onclick="myForward();">forward</button>
+	<button onclick="myBack2();">2 back</button>
+</body>
+</html>

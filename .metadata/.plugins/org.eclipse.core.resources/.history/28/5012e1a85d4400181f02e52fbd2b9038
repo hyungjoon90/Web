@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function Func(){
+		this.su=su;
+		this.toString=function(){return this.su;};
+	}
+	
+	var f =new Func(1000);
+	console.log(f.toString());
+	var f2 =new Func(2000);
+	console.log(f2);
+</script>
+</head>
+<body>
+
+</body>
+</html>

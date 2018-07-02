@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function Func(){
+		this.su=1234;
+	}
+	
+	var f =new Func(1000);
+	console.log(f.su);
+	var f2 =new Func(2000);
+	console.log(f2.su);
+</script>
+</head>
+<body>
+
+</body>
+</html>

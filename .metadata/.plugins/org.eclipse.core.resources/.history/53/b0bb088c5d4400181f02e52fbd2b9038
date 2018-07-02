@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 자바스크립트는 모두 객체로 처리(오토랩핑과 언랩핑을 통해서)
+ * var a = new String("javascript"); 객체로 생성
+ * var b = "javascript"; 오토랩핑과 언랩핑으로 객체가 되었다가 다시 풀림.
+ */
+ /*
+1. Number
+2. String
+3. Boolean
+4. Array 
+	var h=[111,222,333];
+	var m= new Array(111,222,333); java.util.List(순서O)-자바의 리스트와 비슷
+	m.push(1111);
+	m.push(2222);
+	m.push("aaaa");
+	m.push("bbbb");
+	
+	m.reverse(); 배열을 뒤집음
+	
+	var func=function(a,b){
+		return a-b;
+		return a.charCodeAt(0)-b.charCodeAt(0); 문자의 첫번째 글자를 숫자로 바꾸어 크기를 비교할 경우
+	};
+	//콜백함수(함수안에 함수의 인자값을 안넣어도 자동적으로 실행) func의 a,b를 안넣어도 자동적으로 입력되어 계산
+	m.sort(func);
+	
+	for(var i in m){ 큐
+		condole.log(m[i]);
+	}
+	
+	while(m.lenth){ 스택
+		console.log(m.pop());
+	}
+	
+5. Object
+	//JSON(JavaScript Object Notation) - 제약
+	var obj1={"key1":"value1","key2":"value2"}; //java.util.Map(순서x, 동적자료구조)-자바의 맵과 비슷
+	
+	var obj2=new Object();
+	obj2["key1"]="value1";
+	obj2["key2"]="value2";
+	
+	var obj3=new Object();
+	obj3.key1="val1";
+	obj3.key2="val2";
+	
+	console.log(obj2["key1"]);
+	console.log(obj2["key2"]);
+	
+	console.log(obj3.key1);
+	console.log(obj3.key2);
+	
+6. Function
+	var su=100;
+	function func1(a){
+		su=200;
+		console.log(arguments[0]);
+		console.log(arguments[1]);
+		a();
+		console.log("func1 run : "+su);
+		return ;	
+	}
+	var func2=function(){
+		console.log("func2 run");
+		return ;
+	};
+	
+	//콜백함수
+	func1(func2);
+	func1(1,2);
+	condole.log(su);
+	------------------------------------------------------
+	//클로져(getter,setter)
+	function func3(){
+		var su=111;
+		var temp=function(a){
+			this.data=a
+		};
+		return function(){
+			console.log("test");
+		};
+	};
+	var msg=func3();
+	console.log(msg);
+	
+7. Null
+8. Undefined
+*/
+</script>
+</head>
+<body>
+
+</body>
+</html>

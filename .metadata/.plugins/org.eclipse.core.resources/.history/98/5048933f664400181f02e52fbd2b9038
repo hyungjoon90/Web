@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var obj={"key1":"value1","key2":"value2"};
+	
+	console.log(obj);
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function go(a){
+		window.location.replace("http://www."+a);
+	}
+</script>
+</head>
+<body>
+	<button onclick="go('naver.com');">naver</button>
+	<button onclick="go('daum.net');">daum</button>
+	<button onclick="go('google.com');">google</button>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//location 객체
+	function go(a){
+		window.location.replace("http://"+a);
+	}
+	
+	function re(){
+		window.location.reload();
+	}
+	console.log(location.href);
+	
+</script>
+</head>
+<body>
+	<button onclick="go('naver.com');">naver</button>
+	<button onclick="go('daum.net');">daum</button>
+	<button onclick="go('google.com');">google</button>
+	<input type="text">
+	<button onclick="re();">reload</button>
+</body>
+</html>
